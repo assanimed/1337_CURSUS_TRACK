@@ -5,13 +5,18 @@
 
 int main(){
 
-	char s1[] = "MOHAMED";
-	char s2[20];
+	int src[10] = {1,2,3,4,5,6,7,8,9,10};
+	int dest[10] = {55,2};
 
-	ft_memcpy(s2, s1, 4 * sizeof(char));
+	ft_memmove(dest, src, 5 * sizeof(int));
 
-	printf("src : |%s| \n ", s1);
-	printf("dest : |%s| \n ", s2);
+	for(int i = 0; i < 10; i++)
+		printf("dest[%d] : %d \n", i, dest[i]);
+
+	printf("\n ************* \n");
+
+	for(int i = 0; i < 10; i++)
+		printf("src[%d] : %d \n", i, src[i]);
 
 	return 0;
 }

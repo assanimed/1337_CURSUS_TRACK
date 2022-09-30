@@ -5,18 +5,13 @@
 
 int main(){
 
-	char name[20] = "MOHAMED";
-	char name2[20] = "MOHAMED";
+	char s1[] = "MOHAMED";
+	char s2[20];
 
-	printf("before -> . %s \n", name);
+	ft_memcpy(s2, s1, 4 * sizeof(char));
 
-	bzero(name, 3);
-
-	printf("after Bzero -> . |%s| \n", name);
-
-	ft_bzero(name2, 3);
-
-	printf("after MEMESET -> . |%s| \n", name2);
+	printf("src : |%s| \n ", s1);
+	printf("dest : |%s| \n ", s2);
 
 	return 0;
 }

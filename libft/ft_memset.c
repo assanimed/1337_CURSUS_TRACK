@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:02:01 by melmhass          #+#    #+#             */
-/*   Updated: 2022/09/30 11:19:46 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:30:01 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	str = b;
 	i = 0;

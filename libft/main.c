@@ -10,13 +10,13 @@ int main(){
 
 	printf("before -> . %s \n", name);
 
-	memset(name, '0', 3);
+	bzero(name, 3);
 
-	printf("after MEMESET -> . %s \n", name);
+	printf("after Bzero -> . |%s| \n", name);
 
-	ft_memset(name2, '0', 3);
+	ft_bzero(name2, 3);
 
-	printf("after MEMESET -> . %s \n", name2);
+	printf("after MEMESET -> . |%s| \n", name2);
 
 	return 0;
 }

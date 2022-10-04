@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 15:41:56 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/02 07:18:59 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/02 08:38:59 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/04 15:44:35 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <stdint.h>
 #include "libft.h"
 
-int	ft_isalpha(int c)
+/*
+ Limit of `size_t' type.  // stdint.h
+define SIZE_MAX                (18446744073709551615UL)
+*/
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	void	*mem;
+
+	if (count == SIZE_MAX || size == SIZE_MAX)
+		return (NULL);
+	mem = malloc(count * size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, count * size);
+	return (mem);
 }

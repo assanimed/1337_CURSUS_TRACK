@@ -1,22 +1,34 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdint.h>
 #include "libft.h"
 
 int main(){
 
-	int src[10] = {1,2,3,4,5,6,7,8,9,10};
-	int dest[10] = {55,2};
+	/* char a[5] = "HELLO";
 
-	ft_memmove(dest, src, 5 * sizeof(int));
+	memcpy(a+2, a, 3);
 
-	for(int i = 0; i < 10; i++)
-		printf("dest[%d] : %d \n", i, dest[i]);
+	printf("Value: %s \n", a); */
 
-	printf("\n ************* \n");
 
-	for(int i = 0; i < 10; i++)
-		printf("src[%d] : %d \n", i, src[i]);
+	/* int s[5] = {1,2,3,4,5};
+	int d[5]; */
+
+	// printf("Value : |%c| \n", ft_tolower('a'));
+
+  
+  /* char *a = strchr("CSABLANC", 'A'); // ABLANC
+  char *b = ft_strrchr("CSABLANC", 'A'); // ANC
+  
+  printf("value a: %s \n", a);
+  printf("value b: %s \n", b); */
+
+  	char *back = ft_strtrim("  ABC  ", "x ");
+	printf("out : |%s| \n", back);
+
+
 
 	return 0;
 }

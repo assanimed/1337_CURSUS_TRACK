@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 19:06:06 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/04 22:21:58 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/04 22:11:18 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/04 22:11:41 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <stdlib.h>
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned int idx;
-	int len;
-	char *out;
+    int idx;
+    idx = 0;
 
-	if(!s)
-		return (NULL);
-	idx = 0;
-	len = (int) ft_strlen(s);
-	out = malloc(sizeof(char) * (len + 1));
-	if(!out)
-		return (NULL);
-	while(s[idx])
-	{
-		out[idx] = (*f)(idx, s[idx]);
-		idx++;
-	}
-	out[idx] = '\0';
-	return (out);
+
+    while(s1[idx] != '\0' && s2[idx] != '\0' && idx < (int)n)
+    {
+        if(s1[idx] != s2[idx])
+            return (s1[idx] - s2[idx]);
+        idx++;
+
+    }
+    return (s1[idx] - s2[idx]);
 }

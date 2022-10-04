@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 19:06:06 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/04 22:21:58 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/04 22:09:15 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/04 22:16:50 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_list *ft_lstnew(void *content)
 {
-	unsigned int idx;
-	int len;
-	char *out;
+    t_list *node;
+    node = malloc(sizeof(t_list));
+	if(!node)
+		return (NULL);
+    node -> content = content;
+    node -> next = NULL;
 
-	if(!s)
-		return (NULL);
-	idx = 0;
-	len = (int) ft_strlen(s);
-	out = malloc(sizeof(char) * (len + 1));
-	if(!out)
-		return (NULL);
-	while(s[idx])
-	{
-		out[idx] = (*f)(idx, s[idx]);
-		idx++;
-	}
-	out[idx] = '\0';
-	return (out);
+    return (node);
 }

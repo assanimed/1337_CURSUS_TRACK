@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:42:24 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/06 13:21:42 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/06 10:42:25 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/06 11:23:59 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    size_t totalLen;
-    char *out;
-    totalLen =  ft_strlen(s1) +  ft_strlen(s2);
+    size_t idx;
+    UCHR *ss1;
+	UCHR *ss2;
 
-    out = malloc( (totalLen + 1) * sizeof(char));
-    if(out == NULL)
-        return (NULL);
-    ft_strlcpy(out, s1, ft_strlen(s1) + 1);
-    ft_strlcat(out, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+    ss1 = (UCHR *)s1;
+    ss2 = (UCHR *)s2;
 
-    return (out);
+    idx = 0;
+
+    while ( idx < n)
+    {
+        if (ss1[idx] != ss2[idx])
+            return (ss1[idx] - ss2[idx]);
+        idx++;
+    }
+    return (0);
 }

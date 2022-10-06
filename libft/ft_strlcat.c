@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:42:24 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/06 13:21:42 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/06 09:34:56 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/06 11:15:22 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+size_t ft_strlcat(char *dst, const char *src, size_t n)
 {
-    size_t totalLen;
-    char *out;
-    totalLen =  ft_strlen(s1) +  ft_strlen(s2);
+    size_t dstlen;
+    size_t srclen;
+    size_t idx;
 
-    out = malloc( (totalLen + 1) * sizeof(char));
-    if(out == NULL)
-        return (NULL);
-    ft_strlcpy(out, s1, ft_strlen(s1) + 1);
-    ft_strlcat(out, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+    idx = 0;
 
-    return (out);
+    srclen = ft_strlen(src);
+	if(n==0)
+		return (srclen);
+	dstlen = ft_strlen(dst);
+    if (n <= dstlen || !dst)
+        return (srclen + n);
+    while (src[idx] && (dstlen + idx) < n - 1)
+    {
+        dst[dstlen + idx] = src[idx];
+        idx++;
+    }
+
+    dst[dstlen + idx] = '\0';
+
+    return (dstlen + srclen);
 }

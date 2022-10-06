@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdint.h>
 #include "libft.h"
+#include <stdint.h>
+#include <stdlib.h>
 
 /*
  Limit of `size_t' type.  // stdint.h

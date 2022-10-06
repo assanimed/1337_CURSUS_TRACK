@@ -1,8 +1,7 @@
 
 #include "libft.h"
 
-
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	char *outSTR;
 	size_t length;
@@ -11,10 +10,10 @@ char *ft_strdup(const char *s)
 
 	outSTR = malloc(sizeof(char) * length);
 
-	if(outSTR == NULL)
+	if (outSTR == NULL)
 		return (NULL);
-	
-	(void) ft_strlcpy(outSTR, s, length);
+
+	(void)ft_strlcpy(outSTR, s, length);
 
 	return (outSTR);
 }

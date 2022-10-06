@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    size_t idx;
-    idx = 0;
+	size_t idx;
+	idx = 0;
 
-    while(s1[idx] && s2[idx]  && idx < n-1 && s1[idx] == s2[idx])
-        idx++;
-    return ((UCHR)s1[idx] - (UCHR)s2[idx]);
+	while (s1[idx] && s2[idx] && idx < n - 1 && s1[idx] == s2[idx])
+		idx++;
+	return ((UCHR)s1[idx] - (UCHR)s2[idx]);
 }

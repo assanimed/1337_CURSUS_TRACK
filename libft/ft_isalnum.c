@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static	int	ft_isalpha(int c)
+static int	ft_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
-static	int	ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }

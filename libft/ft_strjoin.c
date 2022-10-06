@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    size_t totalLen;
-    char *out;
-    totalLen =  ft_strlen(s1) +  ft_strlen(s2);
+	size_t	totalLen;
+	char	*out;
 
-    out = malloc( (totalLen + 1) * sizeof(char));
-    if(out == NULL)
-        return (NULL);
-    ft_strlcpy(out, s1, ft_strlen(s1) + 1);
-    ft_strlcat(out, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
-
-    return (out);
+	totalLen = ft_strlen(s1) + ft_strlen(s2);
+	out = malloc((totalLen + 1) * sizeof(char));
+	if (out == NULL)
+		return (NULL);
+	ft_strlcpy(out, s1, ft_strlen(s1) + 1);
+	ft_strlcat(out, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	return (out);
 }

@@ -1,19 +1,20 @@
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	t_list *head;
-    int     idx;
-    head = lst;
-    idx = 1;
-	if(!lst)
+	int idx;
+	head = lst;
+	idx = 1;
+	if (!lst)
 		return (0);
 
-    while(head->next) {
-        head = head -> next;
-        idx++;
-    };
-    return (idx);
+	while (head->next)
+	{
+		head = head->next;
+		idx++;
+	};
+	return (idx);
 }

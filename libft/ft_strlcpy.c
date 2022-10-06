@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-size_t ft_strlcpy(char *dst, const char *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 {
-    size_t src_len;
-    size_t idx;
+	size_t	src_len;
+	size_t	idx;
 
-    idx = 0;
-    src_len = ft_strlen(src);
-	if(n == 0)
+	idx = 0;
+	src_len = ft_strlen(src);
+	if (n == 0)
 		return (src_len);
-    while (src[idx] && idx < n - 1)
-    {
-        dst[idx] = src[idx];
-        idx++;
-    }
-    dst[idx] = '\0';
-    return (src_len);
+	while (src[idx] && idx < n - 1)
+	{
+		dst[idx] = src[idx];
+		idx++;
+	}
+	dst[idx] = '\0';
+	return (src_len);
 }

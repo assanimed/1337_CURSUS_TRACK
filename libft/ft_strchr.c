@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	char *str;
 
-	str = (char *) s;
-	while(*str)
+	str = (char *)s;
+	while (*str)
 	{
-		if(*str == (char)c)
+		if (*str == (char)c)
 			return (str);
 		str++;
 	}
-	if(*str == (char)c)
+	if (*str == (char)c)
 		return (str);
-	
+
 	return (NULL);
 }

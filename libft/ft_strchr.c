@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:06:27 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/04 18:59:15 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:23:49 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char *str;
+	char	*str;
 
 	str = (char *)s;
 	while (*str)
@@ -26,6 +26,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (*str == (char)c)
 		return (str);
-
 	return (NULL);
 }

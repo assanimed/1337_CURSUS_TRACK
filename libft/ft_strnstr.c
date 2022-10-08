@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:18:28 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/06 17:23:43 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/08 11:47:59 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 
 	if (!*needle)
 		return ((char *)haystack);
-	i = j = 0;
+	if (!haystack && !n)
+		return ("");
+	i = 0;
 	while (haystack[i])
 	{
 		j = 0;

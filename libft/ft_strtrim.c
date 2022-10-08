@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:26:55 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/06 17:27:59 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/08 10:53:26 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		idx;
 	char	*out;
 
+	if (!s1)
+		return (NULL);
 	start_index = last_accur_index((char *)s1, (char *)set, 1);
 	end_index = last_accur_index((char *)s1, (char *)set, -1);
 	len = end_index - start_index + 1;
@@ -54,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	out = malloc(sizeof(char) * (len + 1));
 	if (out == NULL)
 		return (NULL);
-	if(start_index >= end_index)
+	if (start_index >= end_index)
 		return ((char *)"");
 	while (start_index <= end_index)
 		out[idx++] = s1[start_index++];

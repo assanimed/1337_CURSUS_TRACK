@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:13:39 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/02 19:51:09 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/08 10:41:13 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int len;
+	int	len;
 
 	len = (int)ft_strlen(s);
 	while (len >= 0)

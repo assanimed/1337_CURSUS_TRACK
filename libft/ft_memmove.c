@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:57:34 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/06 10:01:25 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/08 11:43:58 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 void	*ft_memmove(void *dst, void const *src, size_t n)
 {
-	UCHR *d;
-	const UCHR *s;
+	t_uchr			*d;
+	const t_uchr	*s;
+
 	if (!dst && !src)
 		return (dst);
 	d = dst;
 	s = src;
-
 	if (src > dst)
 		ft_memcpy(d, s, n);
 	if (src < dst)

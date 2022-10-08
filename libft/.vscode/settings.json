@@ -5,6 +5,8 @@
 		"stdlib.h": "c",
 		"stdio.h": "c",
 		"sstream": "c",
-		"fcntl.h": "c"
+		"fcntl.h": "c",
+		"chrono": "c",
+		"iterator": "c"
 	}
 }

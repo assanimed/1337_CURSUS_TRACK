@@ -6,7 +6,7 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 21:42:24 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/06 13:21:42 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/08 10:51:47 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	totalLen;
+	size_t	totallen;
 	char	*out;
 
-	totalLen = ft_strlen(s1) + ft_strlen(s2);
-	out = malloc((totalLen + 1) * sizeof(char));
+	if (!s1 || !s2)
+		return (NULL);
+	totallen = ft_strlen(s1) + ft_strlen(s2);
+	out = malloc((totallen + 1) * sizeof(char));
 	if (out == NULL)
 		return (NULL);
 	ft_strlcpy(out, s1, ft_strlen(s1) + 1);

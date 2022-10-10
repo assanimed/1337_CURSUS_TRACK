@@ -6,35 +6,39 @@
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:36:32 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/08 10:52:41 by melmhass         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:21:43 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
+static	size_t	alloc_size(size_t start, size_t len, size_t slen)
+{
+	if ((start + len) <= slen)
+		return (len + 1);
+	return (slen - start + 1);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t		idx;
-	char		*out;
-	size_t		i;
-	size_t		strt;
+	size_t	stop_index;
+	size_t	sstart;
+	size_t	indx;
+	size_t	allocsize;
+	char	*out;
 
-	strt = start;
-	idx = 0;
-	i = start;
-	if (!s)
-		return (NULL);
-	if (len > ft_strlen(s))
-		out = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	else
-		out = malloc(sizeof(char) * (len + 1));
+	stop_index = len + start;
+	sstart = start;
+	indx = 0;
+	if (s[0] == '\0' || start >= ft_strlen(s))
+		return (ft_strdup(""));
+	allocsize = alloc_size(sstart, len, ft_strlen(s));
+	out = malloc(sizeof(char) * allocsize);
 	if (!out)
 		return (NULL);
-	if (start > ft_strlen(s))
-		return (out);
-	while (s[i] && i < start + len && start < len)
-		out[idx++] = s[i++];
-	out[idx] = '\0';
+	while (sstart < stop_index && s[sstart])
+		out[indx++] = s[sstart++];
+	out[indx] = '\0';
 	return (out);
 }

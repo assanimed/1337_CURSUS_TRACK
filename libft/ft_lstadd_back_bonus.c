@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 19:23:14 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/08 19:34:58 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/08 19:42:51 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/10 10:56:00 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *current;
-	
-	if(!lst)
-		return (NULL);
-	current = lst;
-	while(current)
+	t_list	*current;
+
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		if(!current -> next)
-			return (current);
-		current = current -> next; 
+		current = *lst;
+		while (current -> next)
+		{
+			current = current -> next;
+		}
+		current -> next = new;
 	}
-	return (lst);
 }
 
 /* #include <stdio.h>
@@ -39,6 +40,11 @@ int main()
 	c->next = b;
 	b -> next = NULL;
 
+	
+	ft_lstadd_back(&a, ft_lstnew("LIFEHAX"));
+	ft_lstadd_back(&a, ft_lstnew("SPHENX"));
+	ft_lstadd_back(&a, ft_lstnew("KENTAKI"));
+	ft_lstadd_back(&a, ft_lstnew("ARROMA"));
 
 	t_list *LAAAST =  ft_lstlast(a);
 

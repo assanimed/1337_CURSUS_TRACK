@@ -19,9 +19,9 @@
 define SIZE_MAX                (18446744073709551615UL)
 */
 
-void	*ft_calloc(size_t count, size_t size)
+void *ft_calloc(size_t count, size_t size)
 {
-	void	*mem;
+	void *mem;
 
 	if (count == SIZE_MAX || size == SIZE_MAX)
 		return (NULL);

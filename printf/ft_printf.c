@@ -1,66 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/19 20:25:30 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/20 22:44:26 by melmhass         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
+#include "./libft/libft.h"
+
+/* static void handler(char *rest, va_list args) */
 
 int parse_string(const char *format, va_list args)
 {
-	int len;
-	long nb;
-
-	len = 0;
-    int i = 0;
-    while (format[i])
+    int i;
+    int len;
+    
+    i = 0;
+    len = 0;
+    (void) args;
+    while(format[i])
     {
-        if (format[i] == '%')
+        if(format[i] == '%' && includes(format[i+1], "cspdiuxX%"))
         {
-            i++;
-            if (
-                format[i] == 'd' || format[i] == 'i' || format[i] == 'p' || format[i] == 'X' || format[i] == 'x')
-            {
-                if (format[i] == 'd' || format[i] == 'i')
-                {
-					nb = va_arg(args, int);
-					len += digit_size(nb);
-					put_nbr(nb, 10, "0123456789");
-				}
-                if (format[i] == 'x' || format[i] == 'p')
-                {
-
-                    if (format[i] == 'p')
-                        put_str("0x");
-					nb = va_arg(args, long);
-					len += digit_size(nb);
-                    put_nbr(nb, 16, "0123456789abcdef");
-                }
-                if (format[i] == 'X')
-				{
-					nb = va_arg(args, long);
-					len += digit_size(nb);
-                    put_nbr(nb, 16, "0123456789ABCDEF");
-				}
-                i++;
-            }
-            if (format[i] == 's')
-            {
-                char *str = va_arg(args, char *);
-                len += put_str(str);
-                i++;
-            }
-            if (format[i] == 'c')
+            if(format[i+1] == 'c')
             {
                 len += put_char(va_arg(args, int));
-                i++;
+                i += 2;
             }
-
-			if(format[i] == 'u')
-			{
-				nb = va_arg(args, unsigned int);
-				len += digit_size(nb);
-				put_nbr(nb, 10, "0123456789");
-				i++;
-			}
+            i++;
         }
-        len += put_char(format[i]);
-        i++;
+        else
+        {
+            len += put_char(format[i]);
+            i++;
+        }
+        
     }
+    
     return (len);
 }
 

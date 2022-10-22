@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 10:07:12 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/20 14:38:50 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/06 09:34:56 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/08 20:28:37 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putnbr_fd(int nb, int fd)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	if (nb == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (nb <= 9 && nb >= 0)
-		ft_putchar_fd(nb + '0', fd);
-	else if (nb < 0)
+	size_t	dstlen;
+	size_t	srclen;
+	size_t	idx;
+
+	idx = 0;
+	srclen = ft_strlen(src);
+	if (n == 0)
+		return (srclen);
+	dstlen = ft_strlen(dst);
+	if (n <= dstlen || !dst)
+		return (srclen + n);
+	while (src[idx] && (dstlen + idx) < n - 1)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(nb * -1, fd);
+		dst[dstlen + idx] = src[idx];
+		idx++;
 	}
-	else
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
-	}
+	dst[dstlen + idx] = '\0';
+	return (dstlen + srclen);
 }

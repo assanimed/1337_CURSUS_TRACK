@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 10:07:12 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/20 14:38:50 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/04 22:11:18 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/10 10:19:56 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putnbr_fd(int nb, int fd)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (nb == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (nb <= 9 && nb >= 0)
-		ft_putchar_fd(nb + '0', fd);
-	else if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(nb * -1, fd);
-	}
-	else
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
-	}
+	size_t	idx;
+
+	if (n == 0)
+		return (0);
+	idx = 0;
+	while (s1[idx] && s2[idx] && idx < n - 1 && s1[idx] == s2[idx])
+		idx++;
+	return ((t_uchr)s1[idx] - (t_uchr)s2[idx]);
 }

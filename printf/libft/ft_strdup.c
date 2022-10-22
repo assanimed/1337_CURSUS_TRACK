@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 10:07:12 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/20 14:38:50 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/08 11:40:35 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/08 11:42:08 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putnbr_fd(int nb, int fd)
+char	*ft_strdup(const char *s)
 {
-	if (nb == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (nb <= 9 && nb >= 0)
-		ft_putchar_fd(nb + '0', fd);
-	else if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(nb * -1, fd);
-	}
-	else
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
-	}
+	char	*outstr;
+	size_t	length;
+
+	length = ft_strlen(s) + 1;
+	outstr = malloc(sizeof(char) * length);
+	if (outstr == NULL)
+		return (NULL);
+	(void)ft_strlcpy(outstr, s, length);
+	return (outstr);
 }

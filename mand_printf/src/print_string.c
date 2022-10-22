@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   print_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 10:07:12 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/20 14:38:50 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/22 15:24:38 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/22 16:21:31 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include "../ft_printf.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+size_t	ft_strlen(const char *s)
 {
-	if (nb == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (nb <= 9 && nb >= 0)
-		ft_putchar_fd(nb + '0', fd);
-	else if (nb < 0)
+	size_t	len;
+
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
+}
+
+int	put_str(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(nb * -1, fd);
+		write(1, "(null)", 6);
+		return (6);
 	}
-	else
+	while (s[i])
 	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
+		put_char(s[i]);
+		i++;
 	}
+	return ((int)ft_strlen(s));
 }

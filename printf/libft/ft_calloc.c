@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melmhass <melmhass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 10:07:12 by melmhass          #+#    #+#             */
-/*   Updated: 2022/10/20 14:38:50 by melmhass         ###   ########.fr       */
+/*   Created: 2022/10/02 08:38:59 by melmhass          #+#    #+#             */
+/*   Updated: 2022/10/04 15:44:35 by melmhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdint.h>
+#include <stdlib.h>
 
-void	ft_putnbr_fd(int nb, int fd)
+/*
+ Limit of `size_t' type.  // stdint.h
+define SIZE_MAX                (18446744073709551615UL)
+*/
+
+void *ft_calloc(size_t count, size_t size)
 {
-	if (nb == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (nb <= 9 && nb >= 0)
-		ft_putchar_fd(nb + '0', fd);
-	else if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(nb * -1, fd);
-	}
-	else
-	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
-	}
+	void *mem;
+
+	if (count == SIZE_MAX || size == SIZE_MAX)
+		return (NULL);
+	mem = malloc(count * size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, count * size);
+	return (mem);
 }

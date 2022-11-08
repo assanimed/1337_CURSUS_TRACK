@@ -1,9 +1,0 @@
-this is a file that contain data
-data can be store in more than one line
-and that's fine to be used.
-so stay humble and get the goddamn next line 
-files, network sockets and much more...
-
-
-
-BUFF_SIZE 

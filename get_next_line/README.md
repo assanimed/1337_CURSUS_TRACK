@@ -3,7 +3,7 @@
 ----
 
 
-### you may work with a viriaty of programming, and you can to read the content of a file the must used function is a function that read a line at a time, return that line with '\n' at the end or without it it's the last string, NULL if there's nothing to read or if that file is not valid...
+### you may work with a viriaty of programming, and you come to read the content of a file, the language may offre you a function that read a line at a time from that file, return that line with '\n' at the end or without it it's the last string, NULL if there's nothing to read or if that file is not valid...
 
 <br />
 
